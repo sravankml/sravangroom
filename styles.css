@@ -1,0 +1,226 @@
+body {
+    font-family: 'Great Vibes', cursive;
+    background: url('images/floral-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333; /* Dark text for contrast */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #d4af37; /* Gold */
+  }
+  
+  header h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    color: #d4af37; /* Gold */
+  }
+  
+  header h3 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: #d4af37; /* Gold */
+  }
+  
+  #countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Spacing between boxes */
+    margin: 20px 0;
+  }
+  
+  .timer-box {
+    background: #d4af37; /* Gold background */
+    color: #fff; /* White text */
+    border-radius: 60px; /* Rounded corners */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    width: 100px; /* Fixed width for each box */
+  }
+  
+  .timer-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    height: 50px; /* Fixed height for sliding animation */
+  }
+  
+  .timer-value span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .timer-label {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .details .image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 5px solid #d4af37; /* Gold */
+  }
+  
+  .details .info {
+    text-align: left;
+  }
+  
+  .details .info .names {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #d4af37; /* Gold */
+  }
+  
+  .rsvp {
+    margin: 20px 0;
+  }
+  
+  .rsvp form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .rsvp label {
+    margin: 10px 0 5px;
+    color: #d4af37; /* Gold */
+  }
+  
+  .rsvp input {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border-radius: 5px;
+    border: 1px solid #d4af37; /* Gold */
+  }
+  
+  .rsvp button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #d4af37; /* Gold */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .rsvp button:hover {
+    background: #b8860b; /* Darker Gold */
+  }
+  
+  footer {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #d4af37; /* Gold */
+  }
+
+  /* Keyframes for Fade-in Animation */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Keyframes for Bounce Animation */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Keyframes for Slide-in Animation */
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Apply Fade-in Animation to the Container */
+  .container {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Apply Bounce Animation to the Couple's Image */
+  .details .image img {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  /* Apply Slide-in Animation to the RSVP Form */
+  .rsvp {
+    animation: slideIn 1.5s ease-in-out;
+  }
+
+  #countdown {
+    font-size: 1.5rem;
+    margin: 20px auto; /* Center the box */
+    padding: 20px;
+    background: #ffffff; /* Gold background */
+    color: #fff; /* White text */
+    border-radius: 10px; /* Rounded corners */
+   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+   /* width: fit-content; /* Adjut width to fit content */
+    text-align: center;
+  }
+  
+  #countdown span {
+    font-weight: bold;
+    margin: 0 5px; /* Spacing between numbers and labels */
+  }
+
+  /* Keyframes for Slide-in Animation (Right to Left) */
+@keyframes slideInFromRight {
+    from {
+      transform: translateX(100%); /* Start from the right */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0); /* End at the original position */
+      opacity: 1;
+    }
+  }
+  
+  /* Apply Animation to the .info Section */
+  .info {
+    animation: slideInFromRight 1.5s ease-in-out;
+  }
