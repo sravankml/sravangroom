@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Wedding Invitation</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
   <div class="container">
@@ -33,17 +35,69 @@
     </header>
 
     <section class="details">
-      <div class="image">
-        <img src="images/couple.jpg" alt="Sravan & Amritha">
-      </div>
       <div class="info">
+        <!-- Photo Gallery -->
+        <div class="photo-gallery">
+          <div class="gallery-row">
+            <div class="gallery-item">
+              <img src="images/sit.jpg" alt="Sravan & Amritha">
+              <div class="photo-frame"></div>
+            </div>
+            <div class="gallery-item main-photo">
+              <img src="images/meandher.jpg" alt="Sravan & Amritha">
+              <div class="photo-frame"></div>
+            </div>
+            <div class="gallery-item">
+              <img src="images/newpic.jpg" alt="Sravan & Amritha">
+              <div class="photo-frame"></div>
+            </div>
+          </div>
+        </div>
+
+      <!-- <div class="image">
+        <img src="images/meandher.jpg" alt="Sravan & Amritha">
+        <div class="photo-frame"></div>
+      </div> -->
+      <!-- <div class="image">
+        <img src="images/couple.jpg" alt="Sravan & Amritha">
+      </div> -->
+      <div class="info">
+        <!-- <div class="couple-photo">
+          <img src="images/meandher.jpg" alt="Sravan & Amritha">
+          <div class="photo-frame"></div>
+        </div> -->
         <p>You are cordially invited to celebrate the union of</p>
-        <p class="names">Sravan k & Amritha Chandrasekaran</p>
-        <p>on Saturday, May 10th, 2025</p>
-        <p>at 11.25 AM - 12.30 PM</p>
-        <p>Venue: Palakunnu Kazhakam Sree Bhagavathi Kashethra, Bhandaraveedu</p>
-        <p>Reception: KH Hall, Kalanad</p>
+        <p class="names">Sravan & Amritha</p>
+        
+        <!-- Sangeet Event -->
+        <div class="event">
+          <p class="event-title">🎶 Sangeet Night 🎶</p>
+          <p>Thursday, May 8th, 2025 | 7:00 PM - 11:00 PM</p>
+          <p>Venue: Family Residence</p>
+        </div>
+      
+        <!-- Haldi Event -->
+        <div class="event haldi-event">
+          <p class="event-title">🌼 Haldi Ceremony 🌼</p>
+          <p>Friday, May 9th, 2025 | 3:00 PM - 5:00 PM</p>
+          <p>Venue: BEKAL VILLAGE HOMESTAY</p>
+        </div>
+      
+        <!-- Wedding Event -->
+        <div class="event">
+          <p class="event-title">💍 Wedding Ceremony 💍</p>
+          <p>Saturday, May 10th, 2025 | 11:25 AM</p>
+          <p>Venue: Palakunnu Kazhakam Sree Bhagavathi Kashethra</p>
+        </div>
+      
+        <!-- Reception Event -->
+        <div class="event">
+          <p class="event-title">🍽️ Reception 🍽️</p>
+          <p>Saturday, May 10th, 2025 | 12:00 PM onwards</p>
+          <p>Venue: KH Hall, Kalanad</p>
+        </div>
       </div>
+      
     </section>
 
     <section class="map">
@@ -65,10 +119,10 @@
       <form id="rsvpForm">
         <label for="name">Your Name:</label>
         <input type="text" id="name" name="name" required>
-        <!-- <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required> -->
+        
         <label for="guests">Number of Guests:</label>
         <input type="number" id="guests" name="guests" min="1" required>
+        
         <button type="submit">Submit</button>
       </form>
       <p id="responseMessage"></p>
@@ -79,6 +133,8 @@
     </footer>
   </div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
 </body>
 </html>

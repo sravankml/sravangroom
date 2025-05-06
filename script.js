@@ -33,13 +33,78 @@ const countdown = setInterval(() => {
 }, 1000);
 
 // RSVP Form
-document.getElementById('rsvpForm').addEventListener('submit', function (e) {
-  e.preventDefault();
+// document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+//   e.preventDefault();
 
-  const name = document.getElementById('name').value;
-  const guests = document.getElementById('guests').value;
+//   const name = document.getElementById('name').value;
+//   const guests = document.getElementById('guests').value;
 
-  document.getElementById('responseMessage').innerText = `Thank you, ${name}! We look forward to celebrating with you and your ${guests} guest(s).`;
-  document.getElementById('rsvpForm').reset();
+//   document.getElementById('responseMessage').innerText = `Thank you, ${name}! We look forward to celebrating with you and your ${guests} guest(s).`;
+//   document.getElementById('rsvpForm').reset();
+// });
+
+
+// Initialize Firebase
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBw5z73PUAqQFP0Bp1Rgi-vctFlmK9Zk5c",
+//   authDomain: "sravangroom.firebaseapp.com",
+//   projectId: "sravangroom",
+//   storageBucket: "sravangroom.firebasestorage.app",
+//   messagingSenderId: "1075557669512",
+//   appId: "1:1075557669512:web:3d54b102d92356919b5d3d",
+//   measurementId: "G-KL1K0QB0QR"
+// };
+
+// Wait for Firebase to load
+document.addEventListener('DOMContentLoaded', function() {
+  // Your Firebase config (replace with yours)
+  const firebaseConfig = {
+    apiKey: "AIzaSyBw5z73PUAqQFP0Bp1Rgi-vctFlmK9Zk5c",
+    authDomain: "sravangroom.firebaseapp.com",
+    projectId: "sravangroom",
+    storageBucket: "sravangroom.firebasestorage.app",
+    messagingSenderId: "1075557669512",
+    appId: "1:1075557669512:web:3d54b102d92356919b5d3d",
+    measurementId: "G-KL1K0QB0QR"
+  };
+
+  // Initialize Firebase
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  }
+  const db = firebase.firestore();
+
+  const rsvpForm = document.getElementById('rsvpForm');
+  
+  if (rsvpForm) {
+    rsvpForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name')?.value.trim();
+      const guests = document.getElementById('guests')?.value;
+      
+      if (!name || !guests) {
+        document.getElementById('responseMessage').textContent = 
+          "Please fill all required fields";
+        return;
+      }
+
+      try {
+        await db.collection("rsvps").add({
+          name: name,
+          guests: parseInt(guests),
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        
+        document.getElementById('responseMessage').textContent = 
+          `Thank you, ${name}! We'll see you with ${guests} guest(s).`;
+        rsvpForm.reset();
+      } catch (error) {
+        console.error("Error:", error);
+        document.getElementById('responseMessage').textContent = 
+          "Error submitting. Please try again later.";
+      }
+    });
+  }
+
 });
-
